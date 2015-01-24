@@ -164,7 +164,7 @@ table {
 .block {
 	float: left;
 	padding: 1em 3em;
-	border-style: solid;
+	/*border-style: solid;*/
 }
 
 .block-40 {
@@ -187,7 +187,7 @@ table {
 
 .block-60{
 	float:left;
-	width: 60%;
+	width: 55%;
 
 }
 
