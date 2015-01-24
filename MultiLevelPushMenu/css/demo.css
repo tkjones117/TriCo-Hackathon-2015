@@ -170,8 +170,13 @@ a:hover, a:focus {
 .block p {
 	margin: 0;
 	padding: 0 1em 0.6em;
-	font-size: 1.8em;
+	font-size: 3em;
 	line-height: 1.5;
+}
+
+.block-Select {
+	width: 55%;
+	font-size: 1em;
 }
 
 .info {
