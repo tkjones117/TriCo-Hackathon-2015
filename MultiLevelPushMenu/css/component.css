@@ -22,7 +22,7 @@ html, body, .container, .scroller {
 .container {
 	position: relative;
 	overflow: hidden;
-	background: #34495e;
+	background: url(file://localhost/Users/martinacostagliola/Downloads/imageedit_8_3079464275.jpg);
 }
 
 .menu-trigger {
