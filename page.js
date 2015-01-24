@@ -1,8 +1,8 @@
 var main = function() {
-	$("form-horizontal").submit(function() {
-		console.log($(this).inputPrice);
-	});
-
+	$(document).get("form").submit(function(){ 
+		console.log("hello");
+  });
+	
 }
 
 $(document).ready(main);
