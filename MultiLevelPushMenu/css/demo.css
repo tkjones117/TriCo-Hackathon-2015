@@ -177,6 +177,7 @@ tr {
 	display: inline;
 	float:right;
 	margin-left:20px;
+	border-left-style: solid;
 }
 
 #Description .block-40{
