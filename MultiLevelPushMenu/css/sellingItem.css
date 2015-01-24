@@ -1,0 +1,51 @@
+.form-control{
+	width:200px;
+	border-radius: 6px;
+}
+
+.class{
+	width:30%;
+	font-weight:bold;
+}
+
+form{
+	/*text-align: center;*/
+	
+}
+
+.one{
+	width:100%;
+}
+.third{
+	width:30%;
+	border-style: solid;
+	display:inline;
+	margin:5px;
+	position:relative;
+}
+
+.grid_4 {
+	border-style: solid;
+	width:20%;
+	position:relative;
+	margin:0px;
+	overflow:auto;
+	/*display:inline;*/
+	/*margin-left: 10px;*/
+	/*margin-right:10px;*/
+}
+.container_12{
+	margin-left: auto;
+	margin-right:auto;
+	text-align: left;
+}
+.courseInfo{
+	/*float:right;*/
+}
+.bookInfo{
+	/*float:right;*/
+}
+
+.form-group{
+	/*border-style: solid;*/
+}

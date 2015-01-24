@@ -14,11 +14,13 @@
 		<link rel="stylesheet" type="text/css" href="css/icons.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<link rel="stylesheet" type="text/css" href="ResponsiveFullWidthGrid/component.css" />
+		<!-- <link rel="stylesheet" type="text/css" href= "css/960_12_col" /> -->
 
 
 		<link rel="stylesheet" type="text/css" href="CreativeButtons/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="CreativeButtons/css/MyButton.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="CreativeButtons/css/default.css" /> -->
+		<link rel ="stylesheet" type= "text/css" href="css/sellingItem.css" />
 		<script src="js/modernizr.custom.js"></script>
 		<script src="js/jquery-2.1.3.js"></script>
     	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js">
@@ -894,14 +896,38 @@
 							<div class="block block-50">
 								<p>Looking to <strong>sell</strong>? Click below to make a post:</p>
 							</div>
+							<div class="clearfix"> </div>
 							<p id="loadSelling"></p>
-							<form class="form-horizontal">
+							<form class="clearfix container_12">
   <fieldset>
     <legend>Sell a Textbook</legend>
-    
+    	<div class = "grid_4 personalInfo">
+    		<h5> Personal Information</h5>
+    	<div class="form-group">
+      <label for="inputName" class="col-xs-2 control-label class class1">Seller Name</label>
+      
+        <input type="text" class="form-control" id="inputName" placeholder="Name">
+      
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label for="inputContact" class="col-xs-2 control-label class class2">Contact Info</label>
+      
+        <input type="text" class="form-control" id="inputContact" placeholder="Email, etc.">
+      
+    </div>
+
+    <br>
+    </div>
+
+    <div class = "grid_4 CourseInfo">
+    	<h5> Course Information </h5>
+
       <div class="form-group">
-        <label for="select" class="col-xs-2 control-label">Department</label>
-        <div class="col-xs-5">
+        <label for="select" class="col-xs-2 control-label class class1">Department</label>
+        
         <select class="form-control" id ="department">
           <option>ANTH</option>
           <option>ARTH</option>
@@ -942,14 +968,14 @@
           <option>STAT</option>
           <option>THEA</option>
         </select>
-      </div>
+      
     </div>
 
     <br>
 
     <div class="form-group">
-      <label for="select" class="col-xs-2 control-label">Course Number</label>
-      <div class="col-xs-5">
+      <label for="select" class="col-xs-2 control-label class2">Course Number</label>
+      
         <select class="form-control" id="number">
           <option>1</option>
           <option>2</option>
@@ -959,80 +985,68 @@
           <option selected>Not here</option>
         </select>
         <br>
-      </div>
+      
     </div>
 
     <br>
 
     <div class="form-group">
-      <label for="inputCN" class="col-xs-2 control-label">Add Course Number</label>
-      <div class="col-xs-5">
+      <label for="inputCN" class="col-xs-2 control-label class class3">Add Course Number</label>
+      
         <input type="number" class="form-control" id="inputCN" placeholder="3-digit Course Number">
-      </div>
+      
+    </div>
     </div>
 
     <br>
-
+    <div class="grid_4 bookInfo">
+    	<h5> Book Information </h5>
     <div class="form-group">
-      <label for="inputBook" class="col-xs-2 control-label">Book Name</label>
-      <div class="col-xs-5">
+      <label for="inputBook" class="col-xs-2 control-label class class1">Book Name</label>
+      
         <input type="text" class="form-control" id="bookName" placeholder="Title of the Textbook (include the edition)">
-      </div>
+      
     </div>
 
     <br>
 
     <div class="form-group">
-      <label for="inputPrice" class="col-xs-2 control-label">Selling Price</label>
-      <div class="col-xs-5">
+      <label for="inputPrice" class="col-xs-2 control-label class class2">Selling Price</label>
+      
         <input type="number" class="form-control" id="inputPrice" placeholder="Price">
-      </div>
+      
     </div>
 
     <br>
 
     <div class="form-group">
-      <label for="inputCondition" class="col-xs-2 control-label">Book Condition</label>
-      <div class="col-xs-5">
+      <label for="inputCondition" class="col-xs-2 control-label class class3">Book Condition</label>
+      
         <input type="text" class="form-control" id="inputCondition" placeholder="Condition">
-      </div>
+     
     </div>
 
     <br>
 
-    <div class="form-group">
-      <label for="inputName" class="col-xs-2 control-label">Seller Name</label>
-      <div class="col-xs-5">
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
-      </div>
-    </div>
-
-    <br>
+    
 
     <div class="form-group">
-      <label for="inputContact" class="col-xs-2 control-label">Contact Info</label>
-      <div class="col-xs-5">
-        <input type="text" class="form-control" id="inputContact" placeholder="Email, etc.">
-      </div>
-    </div>
-
-    <br>
-
-    <div class="form-group">
-      <label for="textArea" class="col-xs-2 control-label">Additional Comments</label>
-      <div class="col-xs-5">
+      <label for="textArea" class="col-xs-2 control-label class class3">Additional Comments</label>
+      
         <textarea class="form-control" rows="3" id="textArea"></textarea>
-      </div>
+     
     </div>
 
     <br>
 
     <div class="form-group">
       <div class="col-lg-5 col-lg-offset-2">
-        <button class="btn btn-default">Cancel</button>
+        <button class="btn btn-default class class1">Cancel</button>
         <button type="submit" class="btn btn-primary" id = "submit">Submit</button>
       </div>
     </div>
+    </div>
+
   </fieldset>
 </form>
 
