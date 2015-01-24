@@ -182,11 +182,13 @@ table {
 }
 .block-50{
 	width: 50%;
+
 }
 
 .block-60{
-
+	float:left;
 	width: 60%;
+
 }
 
 .block-100 {
@@ -222,7 +224,6 @@ width: 40%;
 }
 
 .block-Select {
-	width: 50%;
 	font-size: 2em;
 	padding: 0.25em 4em;
 	line-height: 1.5;
