@@ -21,6 +21,9 @@
 		<link rel="stylesheet" type="text/css" href="CreativeButtons/css/MyButton.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="CreativeButtons/css/default.css" /> -->
 		<script src="js/modernizr.custom.js"></script>
+		<script src="js/jquery-2.1.3.js"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js">
+    	</script>
 
 
 
@@ -45,12 +48,12 @@
 							<li class="icon icon-arrow-left">
 								<a class="icon icon-display" href="#">Swarthmore College</a>
 								<div class="mp-level">
-									<h2 class="icon icon-display">Swarthmore College</h2>
+									<h2 class="icon icon-display college">Swarthmore College</h2>
 									<a class="mp-back" href="#">back</a>
 									<ul>
 										<li class="icon icon-arrow">
 											<a class="mp-forward" href="#">Anthropology</a>
-											<div class="mp-level">
+											<div class="mp-level" id="swarthmore">
 												<h2>Anthropogy</h2>
 												<a class="mp-back" href="#">back</a>
 												<ul>
@@ -61,7 +64,7 @@
 												</ul>
 											</div>
 										</li>
-										<li class="icon icon-arrow-left">
+										<!-- <li class="icon icon-arrow-left">
 											<a class="icon icon-tv" href="#">Art History</a>
 											<div class="mp-level">
 												<h2>Art History</h2>
@@ -634,7 +637,7 @@
 							<li class="icon icon-arrow-left">
 								<a class="icon icon-news" href="#">Haverford College</a>
 								<div class="mp-level">
-									<h2 class="icon icon-news">Haverford College</h2>
+									<h2 class="icon icon-news college">Haverford College</h2>
 									<a class="mp-back" href="#">back</a>
 									<ul>
 										<li class="icon icon-arrow-left">
@@ -1019,11 +1022,11 @@
 										<li><a href="#">National Geographic</a></li>
 									</ul>
 								</div>
-							</li>
+							</li> -->
 							<li class="icon icon-arrow-left">
 								<a class="icon icon-shop" href="#">Bryn Mawr College</a>
 								<div class="mp-level">
-									<h2 class="icon icon-shop">Bryn Mawr College</h2>
+									<h2 class="icon icon-shop college">Bryn Mawr College</h2>
 									<a class="mp-back" href="#">back</a>
 									<ul>
 										<li class="icon icon-arrow-left">
@@ -1091,7 +1094,7 @@
 							<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16252"><span>Back to the Codrops Article</span></a></span>
 						</div> -->
 						<header class="codrops-header">
-							<h1><strong>TriCo Book Exchange</strong> <span>Buy and sell used textbooks</span></h1>
+							<h1 id="heading"><strong>TriCo Book Exchange</strong> <span>Buy and sell used textbooks</span></h1>
 						</header>
 						<div class="content clearfix">
 							<table>
@@ -1304,5 +1307,7 @@
 		<script>
 			new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
 		</script>
+
+		<script src="js/index.js"> </script>
 	</body>
 </html>
