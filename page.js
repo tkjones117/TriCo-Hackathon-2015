@@ -1,3 +1,7 @@
+$(function(){
+	$('submit').on('click',function(e){
+		e.preventDefault();
+
 var selectDepart = document.getElementById('department');
 var indexDepart = selectDepart.selectedIndex;
 var department = selectDepart.options[indexDepart].textContent;
@@ -49,9 +53,7 @@ book.set("sellerName",name);
 book.set("sellerContact",sellerContact);
 book.set("additional",additionalComment);
 
-$(function(){
-	$('#submit').on('click',function(e){
-		e.preventDefault();
+
 		// $('h1').append('abc');
 
 		book.save(null,{
