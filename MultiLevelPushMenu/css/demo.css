@@ -147,24 +147,19 @@ a:hover, a:focus {
 }
 
 table {
- width: 60%;
- border-style: 2 px, solid;
+ width: 50%;
+ border-style: solid;
 
 }
 
-tr {
-
-	width: 90%;
-	border-style: 2 px, solid;
-}
 
 
 .content {
 	padding: 4em 2em;
 	max-width: 1200px;
 	margin: 0 auto;
-/*	border-style: solid;
-*/}
+	border-style: solid;
+}
 
 .block {
 	float: left;
