@@ -26,10 +26,11 @@ html, body, .container, .scroller {
 	background-size: 1880px 1290px;
     background-repeat: repeat;
 
-
-
 }
 
+.verticalLine {
+    border-center: thick solid #ff0000;
+}
 .background {
    		-webkit-filter: blur(5px);
 }

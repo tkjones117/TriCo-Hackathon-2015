@@ -146,6 +146,14 @@ a:hover, a:focus {
 	opacity: 0.6;
 }
 
+table {
+ width: 50%;
+ border-style: solid;
+
+}
+
+
+
 .content {
 	padding: 4em 2em;
 	max-width: 1200px;
@@ -155,6 +163,7 @@ a:hover, a:focus {
 .block {
 	float: left;
 	padding: 1em 3em;
+	border-style: solid;
 }
 
 .block-40 {
@@ -165,8 +174,16 @@ a:hover, a:focus {
 	width: 50%;
 }
 
+.block-60{
+
+	width: 60%;
+}
+
 .block-100 {
 	width: 100%;
+}
+.block-Text {
+width: 40%;
 }
 
 .block p {
@@ -174,7 +191,9 @@ a:hover, a:focus {
 	padding: 0 0.5em 0.2em;
 	font-size: 3em;
 	line-height: 1.5;
+
 }
+
 
 .block p1 {
 	margin: 0;
@@ -183,8 +202,16 @@ a:hover, a:focus {
 	font-size: 2em;
 }
 
+.block p2 {
+	margin: 0;
+	padding: 0 1em 1em;
+	font-size: 1.5em;
+	line-height: 1.5; 
+
+}
+
 .block-Select {
-	width: 100%;
+	width: 50%;
 	font-size: 2em;
 	padding: 0.25em 4em;
 	line-height: 1.5;
