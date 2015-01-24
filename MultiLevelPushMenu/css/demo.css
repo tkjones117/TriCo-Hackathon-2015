@@ -175,8 +175,10 @@ a:hover, a:focus {
 }
 
 .block-Select {
-	width: 40%;
+	width: 20%;
 	font-size: 2em;
+	padding: 1.3em 0.4em;
+	line-height: 1;
 }
 
 .info {
