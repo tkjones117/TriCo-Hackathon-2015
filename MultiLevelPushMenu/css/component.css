@@ -7,7 +7,7 @@
 }
 
 html, body, .container, .scroller {
-	height: 200%;
+	height: 100%;
 }
 
 .scroller {
