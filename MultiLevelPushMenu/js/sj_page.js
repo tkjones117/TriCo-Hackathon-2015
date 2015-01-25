@@ -9,16 +9,9 @@ $(function(){
 
 		// issue with number and price (integer values)
 		var selectNum = document.getElementById('number');
-		// var indexNum = selectNum.selectedIndex;
 
-		// number = parseInt(selectNum.options[indexNum].value);
-		// number = selectNum.options[indexNum].value;
 
-		// console.log(number);
-
-		// if (isNaN(number)){
 		number = document.getElementById('inputCN').value;
-		// }
 		console.log(number);
 		college = document.getElementById('college').value;
 		name = document.getElementById('bookName').value;
