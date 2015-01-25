@@ -910,20 +910,24 @@
 
     	<div class = "grid_4 personalInfo">
     		<p class= "info_header"> Personal Information</p>
+
+    	
     	<div class="form-group">
-      <label for="inputName" class="col-xs-2 control-label class class1">Seller Name</label>
+      <label for="inputName" class="col-xs-2 control-label class class1">Seller's Name *</label>
 
       
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
+        <input type="text" class="form-control" id="inputName" placeholder="First and Last">
       
     </div>
 
     <br>
 
+    
+
     <div class="form-group">
-      <label for="inputContact" class="col-xs-2 control-label class class2">Contact Info</label>
+      <label for="inputContact" class="col-xs-2 control-label class class2">Email Address *</label>
       
-        <input type="text" class="form-control" id="inputContact" placeholder="Email, etc.">
+        <input type="text" class="form-control" id="inputContact" placeholder="Email">
       
     </div>
 
@@ -936,6 +940,20 @@
 
     <div class = "grid_4 CourseInfo">
     	<p class= "info_header"> Course Information </p>
+
+    	<div class="form-group">
+        <label for="select" class="col-xs-2 control-label class class1">College</label>
+        
+        <select class="form-control" id ="college">
+          <option>Swarthmore</option>
+          <option>Bryn Mawr</option>
+          <option>Haverford</option>
+          
+      	</select>
+      
+    </div>
+
+	<br>
 
       <div class="form-group">
         <label for="select" class="col-xs-2 control-label class class1">Department</label>
@@ -985,7 +1003,7 @@
     <br>
 
     <div class="form-group">
-      <label for="select" class="col-xs-2 control-label class2">Course Number</label>
+      <label for="select" class="col-xs-2 control-label class2"><strong>Course Number</label>
       
         <select class="form-control" id="number">
           <option>1</option>
@@ -1002,8 +1020,8 @@
     <br>
 
     <div class="form-group">
-      <label for="inputCN" class="col-xs-2 control-label class class3">Add Course Number</label>
-        <input type="text" class="form-control" id="inputCN" placeholder="3-digit Course Number">
+      <label for="inputCN" class="col-xs-2 control-label class class3">Add 3-Digit Course Number </label>
+        <input type="text" class="form-control" id="inputCN" placeholder="e.g. 001 (or 005F)">
       
     </div>
     </div>
@@ -1014,16 +1032,16 @@
     <div class="grid_4 bookInfo">
     	<p class= "info_header"> Book Information </p>
     <div class="form-group">
-      <label for="inputBook" class="col-xs-2 control-label class class1">Book Name</label>
+      <label for="inputBook" class="col-xs-2 control-label class class1">Book Title *</label>
       
-        <input type="text" class="form-control" id="bookName" placeholder="Title of the Textbook (include the edition)">
+        <input type="text" class="form-control" id="bookName" placeholder="Title (including edition)">
       
     </div>
 
     <br>
 
     <div class="form-group">
-      <label for="inputPrice" class="col-xs-2 control-label class class2">Selling Price</label>
+      <label for="inputPrice" class="col-xs-2 control-label class class2">Selling Price *</label>
       
         <input type="text" class="form-control" id="inputPrice" placeholder="Price">
       
@@ -1032,9 +1050,9 @@
     <br>
 
     <div class="form-group">
-      <label for="inputCondition" class="col-xs-2 control-label class class3">Book Condition</label>
+      <label for="inputCondition" class="col-xs-2 control-label class class3">Book Condition *</label>
       
-        <input type="text" class="form-control" id="inputCondition" placeholder="Condition">
+        <input type="text" class="form-control" id="inputCondition" placeholder="New, Good, Fair, etc.">
      
     </div>
 
@@ -1045,7 +1063,7 @@
     <div class="form-group">
       <label for="textArea" class="col-xs-2 control-label class class3">Additional Comments</label>
       
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
+        <textarea class="form-control " rows="3" id="textArea"></textarea>
      
     </div>
     </td>
@@ -1054,8 +1072,8 @@
     <br>
 
       <div class="col-lg-5 col-lg-offset-2">
-        <button class="btn btn-default class class1">Cancel</button>
-        <button type="submit" class="btn btn-primary" id = "submit">Submit</button>
+        <button class="btn btn-default class class1 border">Cancel</button>
+        <button type="submit" class="btn btn-primary border" id = "submit">Submit</button>
       </div>
     </div>
     </div>
