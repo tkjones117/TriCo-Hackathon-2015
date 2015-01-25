@@ -1,8 +1,9 @@
 .message{
-	border-style: solid;
+	/*border-style: solid;*/
 	border-radius: 20px;
 	/*font-weight: bold;*/
 	padding: 10px 30px 10px 30px;
-	/*min-width: 100px;*/
-	/*max-width: 500px;*/
+	min-width: 100px;
+	max-width: 500px;
+	font-size: 1.3em;
 }
