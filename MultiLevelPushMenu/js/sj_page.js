@@ -60,10 +60,18 @@ $(function(){
       	     return false;
       	}
 
+      	if ((number.length > 4) || (number.length < 3)){
+      		alert('Course number should be 3 digits, eg. STAT 11 = STAT 011 (or 3 digits with additional letter, eg. PHYS 004L)');
+      		return false;
 
+      	}
 
+      	function isNumber(obj) { return !isNaN(parseFloat(obj)) }
 
-
+      	if (!isNumber(number.substring(0,2)) || (isNumber(number.substring(3,4)))) {
+      		alert('Invalid course number.')
+      		return false
+      	}
 
 
 
@@ -84,6 +92,7 @@ $(function(){
 		book.save(null,{
 		success: function(person){
 			alert('New object created');
+			location.reload()
 		},
 		error:function(person,error){
 			alert('Failed to create new object, with error code: ' + error.message);

@@ -49,6 +49,9 @@ var swarthmore = ["Ancient History",
 "Statistics",
 "Theater"]
 
+
+
+
 	// initialization code to add department names
 
 $(function(){
@@ -60,7 +63,7 @@ $(function(){
 		li += department + "</a><div class='mp-level' ><h2>" +department +"</h2>";
 		li += "<a class='mp-back' href='#'>back</a>";
 		li += "<ul id =" + department;
-		li += "> <li class='icon icon-arrow-left'> <a href = '#'> 05</a> </li><li><a href='#'>22</a></li> </ul></div>"
+		li += "> <li class='icon icon-arrow-left'> <a href = '#'> 05</a> </li><li><a href='#'>22</a></li> </ul></div>";
 		li += "</li>";
 
 		// $('#ul').append(li);
@@ -68,64 +71,74 @@ $(function(){
 		// $('#ul').append('<li class="icon icon-arrow-left"><a class="icon icon-phone" href="#">Education</a><div class="mp-level"><h2>Education</h2><a class="mp-back" href="#">back</a><ul><li><a href="#">Super Smart Phone</a></li><li><a href="#">Thin Magic Mobile</a></li><li><a href="#">Performance Crusher</a></li><li><a href="#">Futuristic Experience</a></li></ul></div></li>')
 
 		// var li = "<li><a href='#'>" + department + "</a></li>";
-		$('#').append(li);
+		// $('#ul').append(li);
 	}
-	// var aa = "<li><a href='#'>" + department + "</a></li>";
-	// $('#Chinese').append(aa);
+	// var $a = $('a');
+	// alert($a.length);
+	var $a=$("a[href='#']").not('.icon').not('.mp-back').not('.mp-forward').not('.menu-trigger');
+	// alert($a.length);
+	$a.on('click',function(){
+		$parents = $a.parents();
+		var courseNumber = $(this).text();
+		var $department=$(this).parent().parent().parent().siblings('.department');
+		console.log("department now is " + $department.text());
+		var $college = $department.parent().parent().parent().siblings('.college');
+		console.log("college is " + $college.text() + " and length is "+ $college.length);
+		console.log("department now is " + $department.text() + " and college is " + $college.text() + " and course number is "+  courseNumber);
+		var list, name,condition;
+
+		// creating Parse query
+		Parse.initialize("puHovjluHz95PXkN2Wj5xAwZ6pEB3KQfw5k3ZbGt", "BYcb3EbT8VAt08L4wdO1SNvBFxmiP02CimiiZz04");
+		var Book = Parse.Object.extend("Book");
+		var query = new Parse.Query("Book");
+		var collegeName = $college.text()
+		query.equalTo("courseNumber",courseNumber);
+		query.equalTo("department",$department.text());
+		query.equalTo("college",collegeName);
+		// var matching={"Swarthmore":"s","Haverford":"h","Bryn Mawr":"bm"};
+		// var 
+		// console.log(matching);
+		// console.log(collegeName);
+		// console.log(matching[collegeName]);
+
+		query.find({
+			success:function(results){
+				// alert("success");
+				var text="";
+				for (var i =0; i<results.length; i++){
+					var book = results[i];
+					// text += book.get("price") + "<br>"
+					// text += book.get("name") +" " + book.get("price") + "<br>"
+					// add block and block-50 here 
+					text += "<p class ='message block block-50'><span class ='department'><b> " + book.get("department");
+					text +=" </b></span> <span class ='courseNumber'>" +book.get("courseNumber") + " </span><span class ='name'>"; 
+					text += book.get("name") +"</span><br />Price:$ <span class ='price'>" + book.get("price") ;
+					text +=" </span> <br />Condition: <span class ='condition'>" + book.get("condition") ;
+					text += "</span> <br />Seller Name: <span class ='sellerName'>" + book.get("sellerName");
+					text += "</span><br />Contact: <span class ='sellerContact'>" + book.get("sellerContact"); 
+					text += "</span><br /> Additional comment: <span class='additional_comment'>"; 
+					text +=  book.get("additionalComment") +" </span><br /></p>";
+					// alert("a");
+					// $("#loadItems").append(book.get("price"));
+					// alert(book.get("price"));
+				}
+				// alert("a")
+				$('form').hide(0);
+				$('.content').hide(0);
+				$('#loadItems').empty();
+				$("#loadItems").append(text);
+				// alert(text);
+			},
+			error: function(err){
+				alert("Error: " + error.code +error.message);
+				}
+			});
+		});
 });
 
 
-// code to react when user clicks on a specific course number
-var $a=$("a[href='#']").not('.icon').not('.mp-back').not('.mp-forward').not('.menu-trigger');
-$a.on('click',function(){
-	$parents = $a.parents();
-	var courseNumber = $(this).text();
-	var $department = $parents.find('a.department');
-	var $college = $parents.find('a.college');
-	console.log($department.text() + $college.text() + courseNumber);
-
-	var list, name,condition;
-	// creating Parse query
-	Parse.initialize("puHovjluHz95PXkN2Wj5xAwZ6pEB3KQfw5k3ZbGt", "BYcb3EbT8VAt08L4wdO1SNvBFxmiP02CimiiZz04");
-	var Book = Parse.Object.extend("Book");
-	var query = new Parse.Query("Book");
-	query.equalTo("courseNumber",courseNumber);
-	query.equalTo("department",$department.text());
-	query.equalTo("college",$college.text());
-
-	query.find({
-		success:function(results){
-			alert("working");
-			// alert("successfully retrieved" +results.length + " books");
-			var text="";
-			for (var i =0; i<results.length; i++){
-				var book = results[i];
-				// text += book.get("price") + "<br>"
-				// text += book.get("name") +" " + book.get("price") + "<br>"
-				// add block and block-50 here 
-				text += "<p class ='message block block-50'><span class ='department'><b> " + book.get("department")
-				text +=" </b></span> <span class ='courseNumber'>" +book.get("courseNumber") + " </span><span class ='name'>" 
-				text += book.get("name") +"</span><br />Price:$ <span class ='price'>" + book.get("price") 
-				text +=" </span> <br />Condition: <span class ='condition'>" + book.get("condition") 
-				text += "</span> <br />Seller Name: <span class ='sellerName'>" + book.get("sellerName") 
-				text += "</span><br />Contact: <span class ='sellerContact'>" + book.get("sellerContact") 
-				text += "</span><br /> Additional comment: <span class='additional_comment'>" 
-				text +=  book.get("additionalComment") +" </span><br /></p>"
-				// alert("a");
-				// $("#loadItems").append(book.get("price"));
-				// alert(book.get("price"));
-			}
-			$('form').hide(0);
-			$("#loadItems").append(text);
-			// alert(text);
-		},
-		error: function(err){
-			alert("Error: " + error.code +error.message);
-		}
-	});
 
 
-});
 
 // $(function(){
 // 	var $a=$('a');
