@@ -167,6 +167,12 @@ table {
 	/*border-style: solid;*/
 }
 
+.block-image {
+ width:100%;
+text-align: center;
+
+}
+
 .block-40 {
 	width: 36%;
 	height: 420px;
