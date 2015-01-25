@@ -25,8 +25,8 @@ form{
 }
 
 .grid_4 {
-	/*border-style: solid;*/
-	width:100%;
+	/*border-style: solid;
+*/	width:100%;
 	vertical-align: top;
 	position:relative;
 	margin:0px;
@@ -55,6 +55,7 @@ table{
 	border-collapse: separate;
 	border-spacing: 10px 50px;
 	width: 100%;
+	border-style: none;
 }
 
 th{
