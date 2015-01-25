@@ -68,7 +68,7 @@ $(function(){
 		// $('#ul').append('<li class="icon icon-arrow-left"><a class="icon icon-phone" href="#">Education</a><div class="mp-level"><h2>Education</h2><a class="mp-back" href="#">back</a><ul><li><a href="#">Super Smart Phone</a></li><li><a href="#">Thin Magic Mobile</a></li><li><a href="#">Performance Crusher</a></li><li><a href="#">Futuristic Experience</a></li></ul></div></li>')
 
 		// var li = "<li><a href='#'>" + department + "</a></li>";
-		$('#ul').append(li);
+		$('#').append(li);
 	}
 	// var aa = "<li><a href='#'>" + department + "</a></li>";
 	// $('#Chinese').append(aa);

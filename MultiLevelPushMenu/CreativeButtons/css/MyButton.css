@@ -3,3 +3,16 @@
 	font-size: inherit;
 	
 }
+
+.textbook{
+	width: 50%;
+	height: 50%;
+	float:left;
+	padding: 0;
+	text-align: center;
+background-color: rgb(173,216,230);
+font-color: black;
+border-radius: 25px;
+border: 2px solid #FFFFFF;
+
+}
