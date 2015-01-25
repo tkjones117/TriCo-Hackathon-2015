@@ -70,3 +70,12 @@ th{
 .info_header{
 	font-size: 1.75em;
 }
+
+.border{
+	border: 2px solid #FFFFFF;
+	padding: 5px 5px;
+	width: 150px;
+	border-radius: 25px;
+	text-align: center;
+	float: right;
+}
