@@ -901,10 +901,14 @@
 							<form class="clearfix container_12">
   <fieldset>
     <legend>Sell a Textbook</legend>
-    	<div class = "grid_4 personalInfo">
-    		<h5> Personal Information</h5>
+    	<table class="top">
+    	<tr>
+    		<td valign="top">
+
+    		<div class = "grid_4 personalInfo">
+    		<p class= "info_header"> Personal Information</p>
     	<div class="form-group">
-      <label for="inputName" class="col-xs-2 control-label class class1">Seller Name</label>
+      <label for="inputName" class="col-xs-2 control-label class class1">Seller's Name</label>
       
         <input type="text" class="form-control" id="inputName" placeholder="Name">
       
@@ -918,12 +922,18 @@
         <input type="text" class="form-control" id="inputContact" placeholder="Email, etc.">
       
     </div>
+    </td>
+
+    	
+    	
+    	
 
     <br>
     </div>
-
+<td valign="top">
+    		
     <div class = "grid_4 CourseInfo">
-    	<h5> Course Information </h5>
+    	<p class= "info_header"> Course Information </p>
 
       <div class="form-group">
         <label for="select" class="col-xs-2 control-label class class1">Department</label>
@@ -997,12 +1007,14 @@
       
     </div>
     </div>
-
+	</td>
     <br>
+
+    <td>
     <div class="grid_4 bookInfo">
-    	<h5> Book Information </h5>
+    	<p class= "info_header"> Book Information </p>
     <div class="form-group">
-      <label for="inputBook" class="col-xs-2 control-label class class1">Book Name</label>
+      <label for="inputBook" class="col-xs-2 control-label class class1">Book Title</label>
       
         <input type="text" class="form-control" id="bookName" placeholder="Title of the Textbook (include the edition)">
       
@@ -1036,7 +1048,9 @@
         <textarea class="form-control" rows="3" id="textArea"></textarea>
      
     </div>
-
+    </td>
+	</tr>
+	</table>
     <br>
 
     <div class="form-group">
