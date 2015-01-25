@@ -1755,9 +1755,9 @@
 								<div class = "block-button">
 								<button class="border sellButton">
 
-									<a href="#top_of_form">Sell Your Textbooks</a></button> </div><span>Buy and sell used textbooks
+									<a href= "#" id ="sell">Sell Your Textbooks</a></button> </div><span>Buy and sell used textbooks
 
-							</span></h1><a href="#" id ="return">Return</a>
+							</span></h1><a href="#" id="triggerReturn" class="menu-trigger">Return</a>
 
 <!-- 							
  -->							
@@ -1826,9 +1826,8 @@
 					</div><!-- /scroller-inner -->
 					<div id ="loadItems"></div>
 							
-			<a name="top_of_form"></a>			
-<form name="myForm" method="post"
-  onSubmit="return(validate())">
+			<!-- <a name="top_of_form"></a>			 -->
+<form name="myForm" method="post" onSubmit="return(validate())" id ="form">
   <fieldset>
     <legend class="info_header">Sell a Textbook</legend>
     	<table class="top">
@@ -1929,7 +1928,7 @@
 
     <br>
 
-    <div class="form-group">
+   <!--  <div class="form-group">
       <label for="select" class="col-xs-2 control-label class2"><strong>Course Number</label>
       
         <select class="form-control" id="number">
@@ -1942,7 +1941,7 @@
         </select>
         <br>
       
-    </div>
+    </div> -->
 	
     <br>
 

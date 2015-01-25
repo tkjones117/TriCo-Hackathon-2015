@@ -65,14 +65,17 @@ $(function(){
 		li += "> <li class='icon icon-arrow-left'> <a href = '#'> 05</a> </li><li><a href='#'>22</a></li> </ul></div>";
 		li += "</li>";
 	}
-	$('#return').hide();
+	$('#triggerReturn').hide();
 	// alert($('#return').text());
-	// $('#return').on('click',function(e){
-	// 	e.preventDefault;
-	// 	$("#loadItems").empty();
-	// 	$('#mp-menu').show();
-	// 	$('.content').show();
-	// });
+	$('#triggerReturn').on('click',function(e){
+		e.preventDefault;
+		$("#loadItems").empty();
+		// $('#mp-menu').show();
+		$('.content').show();
+		$("#form").show();
+		$('#triggerReturn').hide();
+	});
+
 	var $a=$("a[href='#']").not('.icon').not('.mp-back').not('.mp-forward').not('.menu-trigger');
 	$a.on('click',function(){
 		$parents = $a.parents();
@@ -113,7 +116,7 @@ $(function(){
 				$('.content').hide(0);
 				$('#loadItems').empty();
 				$("#loadItems").append(text);
-				$('#return').show();
+				$('#triggerReturn').show();
 			},
 			error: function(err){
 				alert("Error: " + error.code +error.message);
