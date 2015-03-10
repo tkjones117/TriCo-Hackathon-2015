@@ -83,14 +83,18 @@ function initialize(){
 	var queries = new Parse.Query(books);
 	queries.equalTo("college","Swarthmore");
 	queries.find({
+		success:function(books){
+			forLoop(books);
+		},
 		error: function(error){
 			alert("Error: " + error.code +error.message);
 		}
 	});
-	console.log(queries);
-	var li, departmentQuery;
+	// console.log(queries);
+	// console.log("queries length is " + queries.count);
+	// var li, departmentQuery;
 	// $.when(forLoop(queries)).done(findQuery()).done(createMenu());
-	forLoop(queries);
+	// forLoop(queries);
 	$('#triggerReturn').hide();
 	$('#triggerReturn').on('click',function(e){
 		e.preventDefault;
@@ -109,10 +113,46 @@ function initialize(){
 
 // forLoop function goes over all the department in each college adds all the content info to 
 // each department, college
-function forLoop(queries){
+function forLoop(books){
+	var book;
+	for (var i = 0; i < books.length; i++){
+		book = books[i];
+		console.log("department is " + book.get("department"));
+		console.log("book name is " + book.get("name") + " and book price is " + book.get("price"));
+		// console.log(i + book);
+	}
+		
+	
+
+	var hash ={}
+	// for (var i = 0; i<queries.length; i++){
+	// 	var query = queries[i];
+	// 	console.log("query is " + query);
+	// 	department= query.get("department");
+	// 	if (!(department in hash)){
+	// 		hash[department] = new Set();
+	// 	}
+	// 	var courseNumber = query.get("courseNumber")
+	// 	if (!hash[department].has(courseNumber)){
+	// 		hash[department].add(courseNumber);
+	// 	}
+	// }
+	console.log("hash is "+ hash);
+	console.log("hash anthropology is "+ hash["Anthropology"]);
+
+
+
+
 	console.log("start of for loop");
+	var done = {};
 	for (var i = 0; i < 2;i++){
-		li = "";
+		// if (i != 0){ 
+		// 	while (!( (i-1) in done)){
+		// 		console.log("in the while loop");
+		// 	}
+		// }
+
+		// li = "";
 	// for (var i = 0; i< swarthmore.length;i++){
 		// Key: use string and use inspect element
 		department = swarthmore[i];
@@ -122,6 +162,7 @@ function forLoop(queries){
 		li += "<a class='mp-back' href='#'>back</a><ul>";
 		console.log("after li addition, department is " + department);
 		departmentQuery = queries.equalTo("department", department);
+		console.log("This is after departmentQuery is initialized");
 		// departmentQuery.find({
 		// 	success:function(results){
 		// 		console.log(results[0].get("courseNumber"));
@@ -132,25 +173,30 @@ function forLoop(queries){
 		// 		alert("error!")
 		// 	}
 		// });
-		departmentQuery.find().then(function(results){
-			return makeList(results);
-		}).then(function(returnStrings){
-			console.log("returnStrings are " + returnStrings);
-			li += returnStrings + "</ul></div></li>";
-			return li;
-		}).then(function(li){
-			console.log("Before append, the li are " + li);
-			$('#SwatClasses').append(li);
+		departmentQuery.find({
+			success:function(results){
+				returnStrings = makeList(results);
+				console.log("returnStrings are " + returnStrings);
+				li += returnStrings + "</ul></div></li>";
+				console.log("Before append, the li are " + li);
+				done[i] = i;
+				$('#SwatClasses').append(li);
+			}
 		});
-	// lis = makeList(departmentQuery);
-	// alert(lis);
-	// console.log("returned lis is " + lis);
-	// alert(lis);
-	// li += lis;
-	// li += "<li><a href = '#'>005</a> </li><li><a href='#'>022</a></li>";
-	// li += "</ul></div></li>";
-	// console.log(department + " ");
-	// console.log(li);
+
+
+		// departmentQuery.find().then(function(results){
+		// 	return makeList(results);
+		// }).then(function(returnStrings){
+		// 	console.log("returnStrings are " + returnStrings);
+		// 	li += returnStrings + "</ul></div></li>";
+		// 	return li;
+		// }).then(function(li){
+		// 	console.log("Before append, the li are " + li);
+		// 	done[i] = i;
+		// 	$('#SwatClasses').append(li);
+		// });
+
 	}
 	console.log("end of for loop");
 }
