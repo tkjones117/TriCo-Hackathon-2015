@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Trico-hackthon": {
+            "applicationId": "puHovjluHz95PXkN2Wj5xAwZ6pEB3KQfw5k3ZbGt", 
+            "masterKey": "gD1a6xt8aonZUUA5BaUbfzydLnDVacsBQLrHf5HU"
+        }, 
+        "_default": {
+            "link": "Trico-hackthon"
+        }
+    }
+}
