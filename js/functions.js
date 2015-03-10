@@ -15,6 +15,7 @@ function makeList(results){
 			text += "<li><a href='#'>" + number + "</a></li>";
 		}
 	}
+	// console.log("set is " + set);
 	console.log("In makeList function, text is " + text);
 	return text;
 }
@@ -82,6 +83,7 @@ function initialize(){
 	var books = Parse.Object.extend("Book");
 	var queries = new Parse.Query(books);
 	queries.equalTo("college","Swarthmore");
+	queries.ascending("department");
 	queries.find({
 		success:function(books){
 			forLoop(books);
@@ -114,17 +116,46 @@ function initialize(){
 // forLoop function goes over all the department in each college adds all the content info to 
 // each department, college
 function forLoop(books){
-	var book;
+	var book, previousDepartment;
+	var hash ={};
+	var courses = [];
 	for (var i = 0; i < books.length; i++){
 		book = books[i];
-		console.log("department is " + book.get("department"));
-		console.log("book name is " + book.get("name") + " and book price is " + book.get("price"));
-		// console.log(i + book);
+		department = book.get("department");
+		if ((department != previousDepartment) || (i == books.length-1)){
+			li = "<li class='icon icon-arrow-left'><a class = 'icon department' href='#'>";
+			li += previousDepartment + "</a><div class='mp-level'><h2>" + previousDepartment +"</h2>";
+			li += "<a class='mp-back' href='#'>back</a><ul>";
+			for (var j = 0; j < courses.length; j++){
+				// console.log(courses[j]);
+				li += "<li><a href='#'>" + courses[j] + "</a></li>"
+			}
+			li += "</ul></div></li>";
+			$('#SwatClasses').append(li);
+			console.log("department is " + previousDepartment);
+			console.log(" all its course numbers are " + courses.toString());
+			courses.length = 0;
+		}
+		courseNumber = book.get("courseNumber");
+		if (courses.indexOf(courseNumber) == -1){
+			courses.push(courseNumber);
+		}
+		previousDepartment = department;
 	}
-		
+
+	// var values = Array.from(hash["Anthropology"]);
+	// console.log("values are " + values);
+	// for value in values {
+		// console.log(value);
+	// }
+	// console.log("values are " + values);
+	// for (let item of hash["Anthropology"].values()) console.log(item);
+	// var item;
+	// for item in hash.keys():
+		// console.log(item);
+
 	
 
-	var hash ={}
 	// for (var i = 0; i<queries.length; i++){
 	// 	var query = queries[i];
 	// 	console.log("query is " + query);
@@ -137,67 +168,70 @@ function forLoop(books){
 	// 		hash[department].add(courseNumber);
 	// 	}
 	// }
-	console.log("hash is "+ hash);
-	console.log("hash anthropology is "+ hash["Anthropology"]);
+	
 
 
 
 
-	console.log("start of for loop");
-	var done = {};
-	for (var i = 0; i < 2;i++){
-		// if (i != 0){ 
-		// 	while (!( (i-1) in done)){
-		// 		console.log("in the while loop");
-		// 	}
-		// }
+	// console.log("start of for loop");
+	// var done = {};
+	// for (var i = 0; i < 2;i++){
+	// 	// if (i != 0){ 
+	// 	// 	while (!( (i-1) in done)){
+	// 	// 		console.log("in the while loop");
+	// 	// 	}
+	// 	// }
 
-		// li = "";
-	// for (var i = 0; i< swarthmore.length;i++){
-		// Key: use string and use inspect element
-		department = swarthmore[i];
-		console.log("after initializing, department is " + department);
-		li = "<li class='icon icon-arrow-left'><a class = 'icon icon-phone department' href='#'>";
-		li += department + "</a><div class='mp-level'><h2>" + department +"</h2>";
-		li += "<a class='mp-back' href='#'>back</a><ul>";
-		console.log("after li addition, department is " + department);
-		departmentQuery = queries.equalTo("department", department);
-		console.log("This is after departmentQuery is initialized");
-		// departmentQuery.find({
-		// 	success:function(results){
-		// 		console.log(results[0].get("courseNumber"));
-		// 		// console.log("departmentQuery count is " + count);
-		// 		// console.log(departmentQuery[0].get("courseNumber"));
-		// 	},
-		// 	error:function(error){
-		// 		alert("error!")
-		// 	}
-		// });
-		departmentQuery.find({
-			success:function(results){
-				returnStrings = makeList(results);
-				console.log("returnStrings are " + returnStrings);
-				li += returnStrings + "</ul></div></li>";
-				console.log("Before append, the li are " + li);
-				done[i] = i;
-				$('#SwatClasses').append(li);
-			}
-		});
+	// 	// li = "";
+	// // for (var i = 0; i< swarthmore.length;i++){
+	// 	// Key: use string and use inspect element
 
 
-		// departmentQuery.find().then(function(results){
-		// 	return makeList(results);
-		// }).then(function(returnStrings){
-		// 	console.log("returnStrings are " + returnStrings);
-		// 	li += returnStrings + "</ul></div></li>";
-		// 	return li;
-		// }).then(function(li){
-		// 	console.log("Before append, the li are " + li);
-		// 	done[i] = i;
-		// 	$('#SwatClasses').append(li);
-		// });
+	// 	department = swarthmore[i];
+	// 	console.log("after initializing, department is " + department);
+	// 	li = "<li class='icon icon-arrow-left'><a class = 'icon icon-phone department' href='#'>";
+	// 	li += department + "</a><div class='mp-level'><h2>" + department +"</h2>";
+	// 	li += "<a class='mp-back' href='#'>back</a><ul>";
+	// 	console.log("after li addition, department is " + department);
+	// 	departmentQuery = queries.equalTo("department", department);
+	// 	console.log("This is after departmentQuery is initialized");
 
-	}
+
+	// 	// departmentQuery.find({
+	// 	// 	success:function(results){
+	// 	// 		console.log(results[0].get("courseNumber"));
+	// 	// 		// console.log("departmentQuery count is " + count);
+	// 	// 		// console.log(departmentQuery[0].get("courseNumber"));
+	// 	// 	},
+	// 	// 	error:function(error){
+	// 	// 		alert("error!")
+	// 	// 	}
+	// 	// });
+	// 	departmentQuery.find({
+	// 		success:function(results){
+	// 			returnStrings = makeList(results);
+	// 			console.log("returnStrings are " + returnStrings);
+	// 			li += returnStrings + "</ul></div></li>";
+	// 			console.log("Before append, the li are " + li);
+	// 			done[i] = i;
+	// 			$('#SwatClasses').append(li);
+	// 		}
+	// 	});
+
+
+	// 	// departmentQuery.find().then(function(results){
+	// 	// 	return makeList(results);
+	// 	// }).then(function(returnStrings){
+	// 	// 	console.log("returnStrings are " + returnStrings);
+	// 	// 	li += returnStrings + "</ul></div></li>";
+	// 	// 	return li;
+	// 	// }).then(function(li){
+	// 	// 	console.log("Before append, the li are " + li);
+	// 	// 	done[i] = i;
+	// 	// 	$('#SwatClasses').append(li);
+	// 	// });
+
+	// }
 	console.log("end of for loop");
 }
 
