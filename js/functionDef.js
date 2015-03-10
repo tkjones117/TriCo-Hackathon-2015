@@ -1,84 +1,32 @@
-var swarthmore = ["Ancient History",
-"Anthropology",
-"Arabic",
-"Art",
-"Art History",
-"Asian Studies",
-"Astronomy",
-"Biochemistry",
-"Biology",
-"Black Studies",
-"Chemistry",
-"Chinese",
-"Classics",
-"Cognitive Science",
-"Comparative Literature",
-"Computer Science",
-"Dance",
-"Economics",
-"Educational Studies",
-"Engineering",
-"English Literature",
-"Environmental Studies",
-"Film & Media Studies",
-"French & Francophone Studies",
-"Gender & Sexuality Studies",
-"German Studies",
-"Greek",
-"History",
-"Interpretation Theory",
-"Islamic Studies",
-"Japanese",
-"Latin",
-"Latin American Studies",
-"Linguistics",
-"Math and Stats",
-"Medieval Studies",
-"Modern Languages & Literatures",
-"Music",
-"Peace & Conflict Studies",
-"Philosophy",
-"Physics",
-"Political Science",
-"Psychology",
-"Public Policy",
-"Religion",
-"Russian",
-"Sociology",
-"Spanish",
-"Statistics",
-"Theater"]
-
-
-
-
-	// initialization code to add department names
-$(function(){
-	var department;
-	for (var i = 0; i< swarthmore.length;i++){
-		// Key: use string and use inspect element
-		department = swarthmore[i];
-		var li = "<li class='icon icon-arrow-left'><a  href='#'>";
-		li += department + "</a><div class='mp-level' ><h2>" +department +"</h2>";
-		li += "<a class='mp-back' href='#'>back</a>";
-		li += "<ul id =" + department;
-		li += "> <li class='icon icon-arrow-left'> <a href = '#'> 05</a> </li><li><a href='#'>22</a></li> </ul></div>";
-		li += "</li>";
+function makeList(results){
+	var text = "";
+	console.log("We are in the makeList function");
+	for (var i = 0; i < results.length; i++){
+		text += "<li><a href='#'>" + results[i].get("courseNumber") + "</a></li>";
 	}
-	$('#triggerReturn').hide();
-	// alert($('#return').text());
-	$('#triggerReturn').on('click',function(e){
-		e.preventDefault;
-		$("#loadItems").empty();
-		// $('#mp-menu').show();
-		$('.content').show();
-		$("#form").show();
-		$('#triggerReturn').hide();
-	});
+	console.log("In makeList function, text is " + text);
+	return text;
+}
 
+	// queries.find({
+	// 	success:function(results){
+	// 		for (var i = 0; i < results.length; i++){
+	// 			text += "<li><a href = '#'>" + results[i].get("courseNumber") + "</a> </li>";
+	// 			// console.log(text);
+	// 		}
+	// 		console.log("text is " + text)
+	// 		return text
+	// 	},
+	// 	error: function(error){
+	// 		alert("Error: " + error.code +error.message);
+	// 		// return "No result!"
+	// 	}
+	// });
+
+function findQuery(){
 	var $a=$("a[href='#']").not('.icon').not('.mp-back').not('.mp-forward').not('.menu-trigger');
 	$a.on('click',function(){
-		$parents = $a.parents();
+		// $parents = $a.parents();
 		var courseNumber = $(this).text();
 		var $department=$(this).parent().parent().parent().siblings('.department');
 		console.log("department now is " + $department.text());
@@ -88,7 +36,6 @@ $(function(){
 		var list, name,condition;
 
 		// creating Parse query
-		Parse.initialize("puHovjluHz95PXkN2Wj5xAwZ6pEB3KQfw5k3ZbGt", "BYcb3EbT8VAt08L4wdO1SNvBFxmiP02CimiiZz04");
 		var Book = Parse.Object.extend("Book");
 		var query = new Parse.Query("Book");
 		var collegeName = $college.text()
@@ -117,11 +64,11 @@ $(function(){
 				$('#loadItems').empty();
 				$("#loadItems").append(text);
 				$('#triggerReturn').show();
+				console.log("successfully loading findQuery");
 			},
 			error: function(err){
 				alert("Error: " + error.code +error.message);
-				}
-			});
+			}
 		});
-	
-});
+	});
+}
