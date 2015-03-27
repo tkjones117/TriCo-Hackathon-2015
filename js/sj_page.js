@@ -1,19 +1,4 @@
-
-
-// var department = "a";
-
-// var number = $('#number :selected');
-
-// var number = 3;
-// var number = 1;
-// var department = 2;
-
-
-// if (number === "Not here"){
-// 	number = document.getElementById('inputCN').textContent;
-// }
-
-var department, number, name, price, condition, sellerName, sellerContact, additionalComment;
+var department, number, name, price, condition, sellerName, sellerContact, additionalComment, college;
 $(function(){
 	$('#submit').on('click',function(e){
 		e.preventDefault();
@@ -24,18 +9,11 @@ $(function(){
 
 		// issue with number and price (integer values)
 		var selectNum = document.getElementById('number');
-		var indexNum = selectNum.selectedIndex;
 
-		// number = parseInt(selectNum.options[indexNum].value);
-		number = selectNum.options[indexNum].value;
 
+		number = document.getElementById('inputCN').value;
 		console.log(number);
-
-		if (isNaN(number)){
-			number = document.getElementById('inputCN').value;
-		}
-		console.log(number);
-
+		college = document.getElementById('college').value;
 		name = document.getElementById('bookName').value;
 		price = parseFloat(document.getElementById('inputPrice').value);
 		condition = document.getElementById('inputCondition').value;
@@ -43,14 +21,14 @@ $(function(){
 		sellerContact = document.getElementById('inputContact').value;
 		additionalComment = document.getElementById('textArea').value;
 
-		if ((name == '') || (price == '') || (condition == '') || (sellerName == '') || (sellerContact == '')){
-			alert('Please enter all required fields.')
-			return false
+		if ((name == '') || (price == '') || (condition == '') || (sellerName == '') || (sellerContact == '') || (college == '')){
+			alert('Please enter all required fields.');
+			return false;
 		}
 
 		else if (number == ''){
-			alert('Please add the course number.')
-			return false
+			alert('Please add the course number.');
+			return false;
 		}
 
    	    var atpos = sellerContact.indexOf("@");
@@ -69,8 +47,8 @@ $(function(){
       	function isNumber(obj) { return !isNaN(parseFloat(obj)) }
 
       	if (!isNumber(number.substring(0,2)) || (isNumber(number.substring(3,4)))) {
-      		alert('Invalid course number.')
-      		return false
+      		alert('Invalid course number.');
+      		return false;
       	}
 
 
@@ -79,13 +57,13 @@ $(function(){
 
 		var Book = Parse.Object.extend("Book");
 		var book = new Book();
-
+		book.set("college",college);
 		book.set("department",department);
 		book.set("courseNumber",number);
 		book.set("name",name);
 		book.set("condition",condition);
 		book.set("price", price);
-		book.set("sellerName",name);
+		book.set("sellerName",sellerName);
 		book.set("sellerContact",sellerContact);
 		book.set("additional",additionalComment);
 
