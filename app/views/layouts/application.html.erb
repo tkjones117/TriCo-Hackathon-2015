@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+          <!-- Push Wrapper -->
+      <div class="mp-pusher" id="mp-pusher">
+
+        <!-- mp-menu -->
+        <nav id="mp-menu" class="mp-menu">
+          <div class="mp-level">
+            <h2 class="icon icon-world">College</h2>
+            <ul>
+              <li class="icon icon-arrow-left">
+                <a class="icon icon-display college" href="#">Swarthmore</a>
+                <div class="mp-level">
+
+                  <h2 class="icon icon-display">Swarthmore</h2>
+                  <a class="mp-back" href="#">back</a>
+                  <ul id = "SwatClasses">
+                    <li class="icon icon-arrow-left">
+                      <a class="icon icon-phone department" href="#">Computer Science</a>
+                      <div class="mp-level">
+                        <h2>Computer Science</h2>
+                        <a class="mp-back" href="#">back</a>
+                        <ul id = "111">
+                          <li><a href="#">021</a></li>
+                          <li><a href="#">031</a></li>
+                          <li><a href="#">035</a></li>
+                          <li><a href="#">044</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </li>
+            </ul>
+              
+          </div>
+        </nav>
+        <!-- /mp-menu -->
+    <%= render 'layouts/header' %>
+
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>
