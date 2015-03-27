@@ -127,7 +127,6 @@ function forLoop(books){
 			li += previousDepartment + "</a><div class='mp-level'><h2>" + previousDepartment +"</h2>";
 			li += "<a class='mp-back' href='#'>back</a><ul>";
 			for (var j = 0; j < courses.length; j++){
-				// console.log(courses[j]);
 				li += "<li><a href='#'>" + courses[j] + "</a></li>"
 			}
 			li += "</ul></div></li>";
