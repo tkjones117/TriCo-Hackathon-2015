@@ -38,7 +38,23 @@ html, body, .container, .scroller {
 .menu-trigger {
 	position: relative;
 	padding-left: 60px;
-	font-size: .9em;
+	font-size: 0.9em;
+}
+
+/*#triggerReturn{
+	font-size: 50em;
+}*/
+.menu-trigger-r:before {
+	font-size: 50em;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	width: 40px;
+	height: 6px;
+	background: #fff;
+	box-shadow: 0 12px #fff, 0 18px rgba(0,0,0,0), 0 24px #fff;
+	box-shadow: 0 12px #fff, 0 18px rgba(0,0,0,0.0), 0 24px #fff;
+	content: '';
 }
 
 .menu-trigger:before {

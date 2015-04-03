@@ -87,3 +87,11 @@ th{
 	font-size: 1.5em;
 }
 
+@media screen and (max-width: 69em) {
+	.form-control {
+		float: none;
+		width: 100% !important;
+		padding: 1em;
+	}
+}
+

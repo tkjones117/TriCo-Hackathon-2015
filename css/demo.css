@@ -302,7 +302,7 @@ width: 40%;
 }
 
 
-//new April 3
+/*new April 3*/
 @media screen and (max-width: 1020px){
 	#container, #codrops-header, #clearfix, #footer{
 		float: none;
