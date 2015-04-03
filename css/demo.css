@@ -277,6 +277,8 @@ width: 40%;
 	color: #336ca6;
 }
 
+
+
 @media screen and (max-width: 69em) {
 	.block {
 		float: none;
@@ -295,4 +297,23 @@ width: 40%;
 		display: none;
 	}
 
+
+
 }
+
+
+//new April 3
+@media screen and (max-width: 1020px){
+	#container, #codrops-header, #clearfix, #footer{
+		float: none;
+		width: auto;
+	}
+
+	#p2{
+		display: none;
+	}
+
+
+	
+}
+
